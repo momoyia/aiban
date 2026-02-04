@@ -20,9 +20,10 @@ class GetAdvancedPositionExtension {
   });
 }
 
-const List<GetAdvancedPositionExtension> shopInventory = <GetAdvancedPositionExtension>[
+const List<GetAdvancedPositionExtension> shopInventory =
+    <GetAdvancedPositionExtension>[
   GetAdvancedPositionExtension(
-    itemId: 'aibanid_1',
+    itemId: 'aibanid_14',
     name: '10金币',
     type: 'basic',
     coinAmount: 10,

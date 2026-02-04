@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/app_colors.dart';
+import '../aibanIAP/TrainArithmeticAnimationCreator.dart';
 import 'about_screen.dart';
 import 'blocked_users_screen.dart';
 import 'muted_users_screen.dart';
@@ -80,6 +81,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         children: [
           const SizedBox(height: 8),
+          _buildSection(
+            title: '金币充值',
+            children: [
+              _buildNavigationItem(
+                icon: Icons.account_balance_wallet_rounded,
+                title: '金币商城',
+                subtitle: '购买金币，畅享更多功能',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ExitDiscardedMetadataFactory(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
           _buildSection(
             title: '隐私与安全',
             children: [

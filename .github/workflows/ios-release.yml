@@ -57,8 +57,8 @@ jobs:
         env:
           WORKING_DIRECTORY: build/ios/ipa
           IPA_FILE_NAME: 爱伴.ipa
-          APPLE_USERNAME: ihwfehxkk9994@outlook.com
-          APPLE_PASSWORD: ruhn-fbon-btzu-bucg
+          APPLE_USERNAME: 19275160089@139.com
+          APPLE_PASSWORD: atdu-kqku-ihjy-wuzn
           APPLE_ASC_PROVIDER: 264V5ZVVNU
         run: |
           cd $WORKING_DIRECTORY

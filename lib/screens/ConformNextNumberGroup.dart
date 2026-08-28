@@ -46,7 +46,7 @@ class CheckHardSkewYFilter extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(24),
                 child: Image.asset(
-                  'assets/images/aiban  icon@1x.png',
+                  'assets/images/aiban  icon@1x.jpg',
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Container(

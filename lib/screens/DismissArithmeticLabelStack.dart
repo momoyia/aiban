@@ -64,7 +64,7 @@ class SetSmartVideoExtension extends State<EndRequiredTaskObserver> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: Image.asset(
-                  'assets/images/aiban  icon@1x.png',
+                  'assets/images/aiban  icon@1x.jpg',
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     // 如果logo图片不存在，显示默认图标

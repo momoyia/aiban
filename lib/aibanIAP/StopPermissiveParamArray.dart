@@ -1,0 +1,155 @@
+class RestartEuclideanGraphOwner {
+  final String itemId;
+  final String name;
+  final String type;
+  final int coinAmount;
+  final String price;
+  final String description;
+  final String locale;
+  final String category;
+
+  const RestartEuclideanGraphOwner({
+    required this.itemId,
+    required this.name,
+    required this.type,
+    required this.coinAmount,
+    required this.price,
+    required this.description,
+    required this.locale,
+    required this.category,
+  });
+}
+
+const List<RestartEuclideanGraphOwner> shopInventory =
+    <RestartEuclideanGraphOwner>[
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_14',
+    name: '10金币',
+    type: 'basic',
+    coinAmount: 10,
+    price: '¥5',
+    description: '小额充值',
+    locale: 'zh_CN',
+    category: 'basic',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_2',
+    name: '20金币',
+    type: 'basic',
+    coinAmount: 20,
+    price: '¥8',
+    description: '超值优惠',
+    locale: 'zh_CN',
+    category: 'basic',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_3',
+    name: '30金币',
+    type: 'basic',
+    coinAmount: 30,
+    price: '¥15',
+    description: '热门推荐',
+    locale: 'zh_CN',
+    category: 'basic',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_4',
+    name: '50金币',
+    type: 'basic',
+    coinAmount: 50,
+    price: '¥28',
+    description: '畅玩套餐',
+    locale: 'zh_CN',
+    category: 'basic',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_5',
+    name: '80金币',
+    type: 'basic',
+    coinAmount: 80,
+    price: '¥38',
+    description: '超值套餐',
+    locale: 'zh_CN',
+    category: 'popular',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_6',
+    name: '100金币',
+    type: 'basic',
+    coinAmount: 100,
+    price: '¥48',
+    description: '热销套餐',
+    locale: 'zh_CN',
+    category: 'popular',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_7',
+    name: '150金币',
+    type: 'basic',
+    coinAmount: 150,
+    price: '¥68',
+    description: '豪华套餐',
+    locale: 'zh_CN',
+    category: 'popular',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_8',
+    name: '200金币',
+    type: 'basic',
+    coinAmount: 200,
+    price: '¥88',
+    description: '尊享套餐',
+    locale: 'zh_CN',
+    category: 'premium',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_9',
+    name: '250金币',
+    type: 'basic',
+    coinAmount: 250,
+    price: '¥128',
+    description: '至尊套餐',
+    locale: 'zh_CN',
+    category: 'premium',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_10',
+    name: '300金币',
+    type: 'basic',
+    coinAmount: 300,
+    price: '¥148',
+    description: '王者套餐',
+    locale: 'zh_CN',
+    category: 'premium',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_11',
+    name: '350金币',
+    type: 'basic',
+    coinAmount: 350,
+    price: '¥168',
+    description: '传奇套餐',
+    locale: 'zh_CN',
+    category: 'premium',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_12',
+    name: '400金币',
+    type: 'basic',
+    coinAmount: 400,
+    price: '¥188',
+    description: '荣耀套餐',
+    locale: 'zh_CN',
+    category: 'premium',
+  ),
+  RestartEuclideanGraphOwner(
+    itemId: 'aibanid_13',
+    name: '500金币',
+    type: 'basic',
+    coinAmount: 500,
+    price: '¥198',
+    description: '终极套餐',
+    locale: 'zh_CN',
+    category: 'ultimate',
+  ),
+];

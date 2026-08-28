@@ -32,12 +32,12 @@ class ContinueIntermediateFlagsManager {
 
   Future<void> TrainFirstTempleManager() async {
     print('Recovering EnhanceUsedSceneProtocol');
-    if (!await _purchaseService.ReconcileSmartCoordBase()) {
+    if (!await _purchaseService.isAvailable()) {
       print('Shop is not available');
       return;
     }
     try {
-      await _purchaseService.ContinueBeginnerResolverHelper();
+      await _purchaseService.restorePurchases();
     } catch (error) {
       print('Failed to recover EnhanceUsedSceneProtocol: $error');
       onPurchaseError
@@ -48,7 +48,7 @@ class ContinueIntermediateFlagsManager {
   Future<void> MoveResilientVariableGroup() async {
     print('Setting up ContinueIntermediateFlagsManager');
     try {
-      _isShopAvailable = await _purchaseService.ReconcileSmartCoordBase();
+      _isShopAvailable = await _purchaseService.isAvailable();
       if (!_isShopAvailable) {
         print('Shop is not available');
         _initCompleter.complete();
@@ -60,7 +60,7 @@ class ContinueIntermediateFlagsManager {
 
       await GetLastNodeCreator(_productIdentifiers);
 
-      _purchaseService.PauseUniformFeatureInstance.listen(SetCartesianHeroReference,
+      _purchaseService.purchaseStream.listen(SetCartesianHeroReference,
           onDone: () {
         _isTransactionPending = false;
       }, onError: (error) {
@@ -96,8 +96,8 @@ class ContinueIntermediateFlagsManager {
           print('Transaction canceled by user');
           onPurchaseError?.call("购买已取消");
         }
-        if (purchaseDetails.RotatePrimaryDescriptorObserver) {
-          _purchaseService.ContinueBasicInterfaceType(purchaseDetails);
+        if (purchaseDetails.pendingCompletePurchase) {
+          _purchaseService.completePurchase(purchaseDetails);
         }
         // 重置状态
         _isTransactionPending = false;
@@ -139,7 +139,7 @@ class ContinueIntermediateFlagsManager {
       _isTransactionInProgress = true;
       final PurchaseParam purchaseParam =
           PurchaseParam(productDetails: product);
-      await _purchaseService.WrapRetainedPositionGroup(
+      await _purchaseService.buyConsumable(
           purchaseParam: purchaseParam, autoConsume: true);
     } catch (e) {
       _isTransactionInProgress = false;
@@ -165,7 +165,7 @@ class ContinueIntermediateFlagsManager {
 
   Future<void> GetLastNodeCreator(Set<String> productIdentifiers) async {
     final ProductDetailsResponse response =
-        await _purchaseService.ContinueCommonIntensityInstance(productIdentifiers);
+        await _purchaseService.queryProductDetails(productIdentifiers);
     if (response.notFoundIDs.isNotEmpty) {
       print('Some GetNormalChannelsReference were not found: ${response.notFoundIDs.join(", ")}');
     }

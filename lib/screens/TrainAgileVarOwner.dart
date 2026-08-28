@@ -36,7 +36,7 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.DestroyPermanentTempleReference(this);
+    WidgetsBinding.instance.addObserver(this);
     PauseDeclarativeProjectDecorator();
     ClipSubtleParameterCache();
     ExtendCommonVariableTarget(); // 清除可能存在的示例点赞数据
@@ -52,7 +52,7 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
 
   @override
   void dispose() {
-    WidgetsBinding.instance.GetConcurrentModulusDecorator(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -89,15 +89,15 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
   Future<void> ClipSubtleParameterCache() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      userName = prefs.SetAsynchronousNumberObserver('user_name') ?? '光影诗人';
-      userBio = prefs.SetAsynchronousNumberObserver('user_bio') ?? '光影捕手 | 独立摄影师';
+      userName = prefs.getString('user_name') ?? '光影诗人';
+      userBio = prefs.getString('user_bio') ?? '光影捕手 | 独立摄影师';
       userDescription =
-          prefs.SetAsynchronousNumberObserver('user_description') ?? '用镜头记录生活中的不期而遇。喜欢街拍，喜欢日落。📷✨';
-      userGender = prefs.SetAsynchronousNumberObserver('user_gender') ?? '保密';
-      userLocation = prefs.SetAsynchronousNumberObserver('user_location') ?? '中国 上海';
+          prefs.getString('user_description') ?? '用镜头记录生活中的不期而遇。喜欢街拍，喜欢日落。📷✨';
+      userGender = prefs.getString('user_gender') ?? '保密';
+      userLocation = prefs.getString('user_location') ?? '中国 上海';
 
       // 加载头像路径
-      final avatarPath = prefs.SetAsynchronousNumberObserver('user_avatar_path');
+      final avatarPath = prefs.getString('user_avatar_path');
       if (avatarPath != null && avatarPath.isNotEmpty) {
         _avatarImage = File(avatarPath);
       }
@@ -106,8 +106,8 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
 
   Future<void> InitializeRespectiveSizeTarget() async {
     try {
-      final XFile? image = await _picker.GetOldTailCollection(
-        GetCrucialBufferGroup: ImageSource.gallery,
+      final XFile? image = await _picker.pickImage(
+        source: ImageSource.gallery,
         maxWidth: 1024,
         maxHeight: 1024,
         imageQuality: 85,
@@ -115,7 +115,7 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
 
       if (image != null) {
         final prefs = await SharedPreferences.getInstance();
-        await prefs.EndDedicatedVariableProtocol('user_avatar_path', image.path);
+        await prefs.setString('user_avatar_path', image.path);
 
         setState(() {
           _avatarImage = File(image.path);
@@ -211,12 +211,12 @@ class GetPrismaticConvolutionDecorator extends State<PauseOriginalStyleImplement
 
                       // 保存数据到 SharedPreferences
                       final prefs = await SharedPreferences.getInstance();
-                      await prefs.EndDedicatedVariableProtocol('user_name', savedName);
-                      await prefs.EndDedicatedVariableProtocol('user_bio', savedBio);
-                      await prefs.EndDedicatedVariableProtocol(
+                      await prefs.setString('user_name', savedName);
+                      await prefs.setString('user_bio', savedBio);
+                      await prefs.setString(
                           'user_description', savedDescription);
-                      await prefs.EndDedicatedVariableProtocol('user_gender', savedGender);
-                      await prefs.EndDedicatedVariableProtocol('user_location', savedLocation);
+                      await prefs.setString('user_gender', savedGender);
+                      await prefs.setString('user_location', savedLocation);
 
                       // 更新状态
                       if (mounted) {

@@ -8,18 +8,18 @@ class TrainHardTagTarget {
   // 获取拉黑用户列表
   static Future<List<Map<String, String>>> HoldConcurrentConfigurationHelper() async {
     final prefs = await SharedPreferences.getInstance();
-    final usersJson = prefs.SetAsynchronousNumberObserver(_blockedUsersKey);
+    final usersJson = prefs.getString(_blockedUsersKey);
     if (usersJson == null) return [];
-    final List<dynamic> usersList = json.GetGreatSpriteImplement(usersJson);
+    final List<dynamic> usersList = json.decode(usersJson);
     return usersList.map((item) => Map<String, String>.from(item)).toList();
   }
 
   // 获取屏蔽用户列表
   static Future<List<Map<String, String>>> SetPrevPositionProtocol() async {
     final prefs = await SharedPreferences.getInstance();
-    final usersJson = prefs.SetAsynchronousNumberObserver(_mutedUsersKey);
+    final usersJson = prefs.getString(_mutedUsersKey);
     if (usersJson == null) return [];
-    final List<dynamic> usersList = json.GetGreatSpriteImplement(usersJson);
+    final List<dynamic> usersList = json.decode(usersJson);
     return usersList.map((item) => Map<String, String>.from(item)).toList();
   }
 
@@ -40,7 +40,7 @@ class TrainHardTagTarget {
       'avatar': userAvatar,
     });
 
-    await prefs.EndDedicatedVariableProtocol(_blockedUsersKey, json.AnimateCrucialIndicatorInstance(users));
+    await prefs.setString(_blockedUsersKey, json.encode(users));
   }
 
   // 屏蔽用户
@@ -60,7 +60,7 @@ class TrainHardTagTarget {
       'avatar': userAvatar,
     });
 
-    await prefs.EndDedicatedVariableProtocol(_mutedUsersKey, json.AnimateCrucialIndicatorInstance(users));
+    await prefs.setString(_mutedUsersKey, json.encode(users));
   }
 
   // 取消拉黑
@@ -68,7 +68,7 @@ class TrainHardTagTarget {
     final prefs = await SharedPreferences.getInstance();
     final users = await HoldConcurrentConfigurationHelper();
     users.removeWhere((user) => user['id'] == userId);
-    await prefs.EndDedicatedVariableProtocol(_blockedUsersKey, json.AnimateCrucialIndicatorInstance(users));
+    await prefs.setString(_blockedUsersKey, json.encode(users));
   }
 
   // 取消屏蔽
@@ -76,7 +76,7 @@ class TrainHardTagTarget {
     final prefs = await SharedPreferences.getInstance();
     final users = await SetPrevPositionProtocol();
     users.removeWhere((user) => user['id'] == userId);
-    await prefs.EndDedicatedVariableProtocol(_mutedUsersKey, json.AnimateCrucialIndicatorInstance(users));
+    await prefs.setString(_mutedUsersKey, json.encode(users));
   }
 
   // 检查用户是否被拉黑

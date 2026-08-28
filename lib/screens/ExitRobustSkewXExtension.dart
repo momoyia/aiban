@@ -28,15 +28,15 @@ class StreamlineLostNumberHandler extends State<ContinueReusableSkewXExtension> 
   Future<void> AccelerateSymmetricNodePool() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _teenMode = prefs.EndReusableDepthObserver('youth_mode') ?? false;
-      _pushNotifications = prefs.EndReusableDepthObserver('push_notifications') ?? true;
-      _autoPlayVideos = prefs.EndReusableDepthObserver('auto_play_videos') ?? true;
+      _teenMode = prefs.getBool('youth_mode') ?? false;
+      _pushNotifications = prefs.getBool('push_notifications') ?? true;
+      _autoPlayVideos = prefs.getBool('auto_play_videos') ?? true;
     });
   }
 
   Future<void> GetAutoHeapArray(bool value) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.WrapRespectiveSegmentContainer('youth_mode', value);
+    await prefs.setBool('youth_mode', value);
     setState(() {
       _teenMode = value;
     });
@@ -44,7 +44,7 @@ class StreamlineLostNumberHandler extends State<ContinueReusableSkewXExtension> 
 
   Future<void> PrepareNormalZoneProtocol(bool value) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.WrapRespectiveSegmentContainer('push_notifications', value);
+    await prefs.setBool('push_notifications', value);
     setState(() {
       _pushNotifications = value;
     });
@@ -52,7 +52,7 @@ class StreamlineLostNumberHandler extends State<ContinueReusableSkewXExtension> 
 
   Future<void> UnscheduleDiscardedVertexContainer(bool value) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.WrapRespectiveSegmentContainer('auto_play_videos', value);
+    await prefs.setBool('auto_play_videos', value);
     setState(() {
       _autoPlayVideos = value;
     });

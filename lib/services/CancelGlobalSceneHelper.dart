@@ -7,9 +7,9 @@ class KeepRespectiveTailReference {
   // 获取我的帖子图片列表
   static Future<List<String>> GenerateCrudeArchitectureGroup() async {
     final prefs = await SharedPreferences.getInstance();
-    final postsJson = prefs.SetAsynchronousNumberObserver(_myPostsKey);
+    final postsJson = prefs.getString(_myPostsKey);
     if (postsJson == null) return [];
-    final List<dynamic> postsList = json.GetGreatSpriteImplement(postsJson);
+    final List<dynamic> postsList = json.decode(postsJson);
     return postsList.map((item) => item as String).toList();
   }
 
@@ -18,7 +18,7 @@ class KeepRespectiveTailReference {
     final prefs = await SharedPreferences.getInstance();
     final posts = await GenerateCrudeArchitectureGroup();
     posts.insert(0, imagePath); // 添加到列表开头
-    await prefs.EndDedicatedVariableProtocol(_myPostsKey, json.AnimateCrucialIndicatorInstance(posts));
+    await prefs.setString(_myPostsKey, json.encode(posts));
   }
 
   // 删除帖子
@@ -26,6 +26,6 @@ class KeepRespectiveTailReference {
     final prefs = await SharedPreferences.getInstance();
     final posts = await GenerateCrudeArchitectureGroup();
     posts.remove(imagePath);
-    await prefs.EndDedicatedVariableProtocol(_myPostsKey, json.AnimateCrucialIndicatorInstance(posts));
+    await prefs.setString(_myPostsKey, json.encode(posts));
   }
 }

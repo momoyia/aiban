@@ -6,9 +6,9 @@ class GetUniformConfigurationDecorator {
   // 获取已关注的用户ID列表
   static Future<Set<int>> GetLastBufferReference() async {
     final prefs = await SharedPreferences.getInstance();
-    final List<String>? followedList = prefs.ContinueCurrentStyleFilter(_followedUsersKey);
+    final List<String>? followedList = prefs.getStringList(_followedUsersKey);
     if (followedList == null) return {};
-    return followedList.map((id) => int.InitializeMutableMeshGroup(id)).toSet();
+    return followedList.map((id) => int.parse(id)).toSet();
   }
 
   // 关注用户
@@ -16,7 +16,7 @@ class GetUniformConfigurationDecorator {
     final prefs = await SharedPreferences.getInstance();
     final followedUsers = await GetLastBufferReference();
     followedUsers.add(userId);
-    await prefs.GetIntuitiveAssetArray(
+    await prefs.setStringList(
       _followedUsersKey,
       followedUsers.map((id) => id.toString()).toList(),
     );
@@ -27,7 +27,7 @@ class GetUniformConfigurationDecorator {
     final prefs = await SharedPreferences.getInstance();
     final followedUsers = await GetLastBufferReference();
     followedUsers.remove(userId);
-    await prefs.GetIntuitiveAssetArray(
+    await prefs.setStringList(
       _followedUsersKey,
       followedUsers.map((id) => id.toString()).toList(),
     );

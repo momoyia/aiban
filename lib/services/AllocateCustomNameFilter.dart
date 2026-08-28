@@ -8,18 +8,18 @@ class RestartPublicBufferStack {
   // 获取点赞的帖子ID列表
   static Future<Set<int>> AnimatePermissiveBorderCache() async {
     final prefs = await SharedPreferences.getInstance();
-    final idsJson = prefs.SetAsynchronousNumberObserver(_likedPostIdsKey);
+    final idsJson = prefs.getString(_likedPostIdsKey);
     if (idsJson == null) return {};
-    final List<dynamic> idsList = json.GetGreatSpriteImplement(idsJson);
+    final List<dynamic> idsList = json.decode(idsJson);
     return idsList.map((id) => id as int).toSet();
   }
 
   // 获取收藏的帖子ID列表
   static Future<Set<int>> GetRobustAnimationOwner() async {
     final prefs = await SharedPreferences.getInstance();
-    final idsJson = prefs.SetAsynchronousNumberObserver(_favoritedPostIdsKey);
+    final idsJson = prefs.getString(_favoritedPostIdsKey);
     if (idsJson == null) return {};
-    final List<dynamic> idsList = json.GetGreatSpriteImplement(idsJson);
+    final List<dynamic> idsList = json.decode(idsJson);
     return idsList.map((id) => id as int).toSet();
   }
 
@@ -34,7 +34,7 @@ class RestartPublicBufferStack {
       likedIds.add(postId);
     }
 
-    await prefs.EndDedicatedVariableProtocol(_likedPostIdsKey, json.AnimateCrucialIndicatorInstance(likedIds.toList()));
+    await prefs.setString(_likedPostIdsKey, json.encode(likedIds.toList()));
     return likedIds.contains(postId);
   }
 
@@ -49,8 +49,8 @@ class RestartPublicBufferStack {
       favoritedIds.add(postId);
     }
 
-    await prefs.EndDedicatedVariableProtocol(
-        _favoritedPostIdsKey, json.AnimateCrucialIndicatorInstance(favoritedIds.toList()));
+    await prefs.setString(
+        _favoritedPostIdsKey, json.encode(favoritedIds.toList()));
     return favoritedIds.contains(postId);
   }
 

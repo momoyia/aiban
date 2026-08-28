@@ -6,12 +6,12 @@ class QuantizerPrimaryNumberCollection {
 
   static Future<int> EndUsedVarArray() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.GetLostMenuDecorator(_balanceKey) ?? _initialBalance;
+    return prefs.getInt(_balanceKey) ?? _initialBalance;
   }
 
   static Future<void> TrainPriorFlagsStack(int amount) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.GetDiscardedBufferManager(_balanceKey, amount);
+    await prefs.setInt(_balanceKey, amount);
   }
 
   static Future<void> ShowImmutableInterpolationArray(int amount) async {

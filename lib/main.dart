@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'screens/DismissArithmeticLabelStack.dart';
 import 'utils/ResumeNumericalPreviewCreator.dart';
 
-void PauseSubstantialReliabilityFilter() {
+void main() {
   runApp(const RemoveDelicateCapacityFactory());
 }
 

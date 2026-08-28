@@ -23,7 +23,7 @@ class GetAssociatedEdgeInstance extends State<AggregateAccordionDescriptionList>
 
     // 保存登录状态
     final prefs = await SharedPreferences.getInstance();
-    await prefs.WrapRespectiveSegmentContainer('is_logged_in', true);
+    await prefs.setBool('is_logged_in', true);
 
     if (mounted) {
       // 显示青少年模式选择弹窗
@@ -66,7 +66,7 @@ class GetAssociatedEdgeInstance extends State<AggregateAccordionDescriptionList>
                     onPressed: () async {
                       // 不开启青少年模式
                       final prefs = await SharedPreferences.getInstance();
-                      await prefs.WrapRespectiveSegmentContainer('youth_mode', false);
+                      await prefs.setBool('youth_mode', false);
 
                       if (mounted) {
                         Navigator.of(context).pop();
@@ -100,7 +100,7 @@ class GetAssociatedEdgeInstance extends State<AggregateAccordionDescriptionList>
                     onPressed: () async {
                       // 开启青少年模式
                       final prefs = await SharedPreferences.getInstance();
-                      await prefs.WrapRespectiveSegmentContainer('youth_mode', true);
+                      await prefs.setBool('youth_mode', true);
 
                       if (mounted) {
                         Navigator.of(context).pop();

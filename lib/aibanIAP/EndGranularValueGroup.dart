@@ -62,13 +62,13 @@ class DisplayLargePriorityReference extends State<SetResilientCacheCache> {
   Future<void> PausePublicDataType() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _coinBalance = prefs.GetLostMenuDecorator('accountGemBalance') ?? 99;
+      _coinBalance = prefs.getInt('accountGemBalance') ?? 99;
     });
   }
 
   Future<void> GetSingleBufferGroup() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.GetDiscardedBufferManager('accountGemBalance', _coinBalance);
+    await prefs.setInt('accountGemBalance', _coinBalance);
   }
 
   void GetTypicalPreviewContainer(int purchasedAmount) {

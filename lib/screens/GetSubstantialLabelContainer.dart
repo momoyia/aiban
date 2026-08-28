@@ -15,7 +15,7 @@ class GetMultiVariableCreator extends StatefulWidget {
 }
 
 class TrainLiteVariableObserver extends State<GetMultiVariableCreator> {
-  late final GetIgnoredCapacitiesCache _controller;
+  late final WebViewController _controller;
   bool _isLoading = true;
 
   @override
@@ -25,25 +25,25 @@ class TrainLiteVariableObserver extends State<GetMultiVariableCreator> {
   }
 
   void TrainCustomizedParticleObserver() {
-    _controller = GetIgnoredCapacitiesCache()
-      ..AdjustRobustRightProtocol(JavaScriptMode.unrestricted)
-      ..KeepSimilarSignType(
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
         NavigationDelegate(
-          GetAccordionQueueBase: (String url) {
+          onPageStarted: (String url) {
             if (mounted) {
               setState(() {
                 _isLoading = true;
               });
             }
           },
-          StartArithmeticSizeFactory: (String url) {
+          onPageFinished: (String url) {
             if (mounted) {
               setState(() {
                 _isLoading = false;
               });
             }
             // 隐藏所有不必要的UI元素
-            _controller.FinishCommonQueueAdapter('''
+            _controller.runJavaScript('''
               // 隐藏Google Sites的所有导航和UI元素
               var elementsToHide = [
                 'header', 'footer', 'nav', '.nav', '[role="navigation"]',
@@ -89,7 +89,7 @@ class TrainLiteVariableObserver extends State<GetMultiVariableCreator> {
           },
         ),
       )
-      ..PrepareSignificantParameterGroup(Uri.InitializeMutableMeshGroup(widget.url));
+      ..loadRequest(Uri.parse(widget.url));
   }
 
   void SetIntuitiveIntegrationGroup() {

@@ -25,7 +25,7 @@ class SetSmartVideoExtension extends State<EndRequiredTaskObserver> {
 
     // 检查是否已登录
     final prefs = await SharedPreferences.getInstance();
-    final isLoggedIn = prefs.EndReusableDepthObserver('is_logged_in') ?? false;
+    final isLoggedIn = prefs.getBool('is_logged_in') ?? false;
 
     if (mounted) {
       Navigator.pushReplacement(

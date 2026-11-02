@@ -61,7 +61,7 @@ jobs:
           # 使用上一步设置的环境变量
           path: ${{ env.IPA_FILE_NAME }}
 
-      - name: Upload using iTMSTransporter
+      - name: Upload using altool
         env:
           # IPA_FILE_NAME 来自 "Prepare IPA" 步骤中设置的 GITHUB_ENV
           APPLE_USERNAME: 19275160089@139.com
@@ -69,31 +69,21 @@ jobs:
           APPLE_ASC_PROVIDER: 264V5ZVVNU
         run: |
           echo "当前工作目录: $(pwd)"
-          echo "上传前列出当前目录中的文件:"
-          ls -la
-          
-          echo "尝试上传 IPA: $IPA_FILE_NAME" # 此变量来自 GITHUB_ENV
-          
-          # 检查 IPA_FILE_NAME 是否已设置且文件是否存在
-          if [ -z "$IPA_FILE_NAME" ]; then
-            echo "错误: IPA_FILE_NAME 环境变量未设置。"
+          echo "临时目录 TMPDIR: $TMPDIR"
+
+          # 清理 altool/Transporter 可能残留的缓存（保留这项仍有帮助）
+          rm -rf ~/Library/Caches/com.apple.amp.itmstransporter/
+
+          echo "尝试上传 IPA: $IPA_FILE_NAME"
+
+          if [ -z "$IPA_FILE_NAME" ] || [ ! -f "$IPA_FILE_NAME" ]; then
+            echo "错误: IPA 文件不存在或变量未设置。"
             exit 1
           fi
-          
-          if [ ! -f "$IPA_FILE_NAME" ]; then
-            echo "错误: 在当前目录中未找到 IPA 文件 '$IPA_FILE_NAME'。"
-            exit 1
-          fi
-          
-          # 如果 iTMSTransporter 工具不存在则克隆
-          # 这是一个基本检查；对于更高级的缓存，请考虑 actions/cache
-          if [ ! -d "itsm" ]; then
-            echo "正在克隆 iTMSTransporter 工具..."
-            git clone https://github.com/ZhangLi1984/itsm.git
-          else
-            echo "itsm 目录已存在。跳过克隆。"
-          fi
-          
-          # 执行 iTMSTransporter
-          # 如果 -assetFile 在工作区的根目录，则其路径应仅为文件名
-          ./itsm/bin/iTMSTransporter -assetFile "$IPA_FILE_NAME" -u "$APPLE_USERNAME" -p "$APPLE_PASSWORD" -m upload -asc_provider "$APPLE_ASC_PROVIDER"
+
+          # 使用 altool 上传
+          xcrun altool --upload-app \
+            -f "$IPA_FILE_NAME" \
+            -u "$APPLE_USERNAME" \
+            -p "$APPLE_PASSWORD" \
+            --asc-provider "$APPLE_ASC_PROVIDER"
